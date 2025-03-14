@@ -33,6 +33,13 @@
         "honest",
         "baseline"
       ]
+    },
+    {
+      "name": "bash_test",
+      "tags": [
+        "example"
+      ],
+      "date": "2025-03-14T11:20:35.107207"
     }
   ]
 }
