@@ -410,7 +410,7 @@
                 const fetchLogs = async () => {
                     try {
                         setLoading(true);
-                        const response = await fetch('/l/logs-manifest.json');
+                        const response = await fetch('./logs-manifest.json');
                         if (!response.ok) {
                             throw new Error('Failed to fetch logs manifest');
                         }
