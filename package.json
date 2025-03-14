@@ -1,0 +1,24 @@
+{
+    "author": "UK Government BEIS",
+    "dependencies": {},
+    "description": "Log viewer for Control Arena - a framework for evaluating AI safety protocols",
+    "devDependencies": {
+        "vite": "^6.2.2"
+    },
+    "keywords": [
+        "control-arena",
+        "log-viewer",
+        "ai-safety"
+    ],
+    "license": "MIT",
+    "name": "control-arena-log-viewer",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/UKGovernmentBEIS/control-arena"
+    },
+    "scripts": {
+        "dev": "serve"
+    },
+    "type": "module",
+    "version": "0.1.0"
+}
