@@ -2,69 +2,35 @@
   "last_updated": "2025-03-14T10:44:21",
   "logs": [
     {
+      "attributes": {
+        "mode": "honest",
+        "protocol": "tm",
+        "setting": "bash",
+        "type": "example"
+      },
       "date": "2025-03-13T15:37:09",
-      "name": "bash_6",
-      "tags": [
-        "bash",
-        "example"
-      ]
+      "name": "bash"
     },
     {
-      "date": "2025-03-13T15:36:52",
-      "name": "bash_5",
-      "tags": [
-        "bash",
-        "example"
-      ]
-    },
-    {
-      "date": "2025-03-13T15:06:07",
-      "name": "bash_4",
-      "tags": [
-        "bash",
-        "example"
-      ]
-    },
-    {
+      "attributes": {
+        "mode": "honest",
+        "protocol": "tm",
+        "setting": "bash",
+        "type": "baseline"
+      },
       "date": "2025-03-13T17:38:31",
-      "name": "bash_tm_honest_baseline",
-      "tags": [
-        "bash",
-        "honest",
-        "baseline"
-      ]
+      "name": "bash_tm_honest_baseline"
     },
     {
-      "name": "bash_test",
-      "tags": [
-        "example"
-      ],
-      "date": "2025-03-14T11:20:35.107207"
-    },
-    {
-      "name": "Testing",
-      "tags": [
-        "example"
-      ],
-      "date": "2025-03-14T14:29:49.182851"
-    },
-    {
-      "name": "kube_test",
-      "tags": null,
-      "date": "2025-03-14T15:49:51.506386"
-    },
-    {
-      "name": "testing-prom",
-      "tags": [
-        "bash",
-        "main_task: test"
-      ],
-      "date": "2025-03-17T11:13:31.610947"
-    },
-    {
-      "name": "kube_eval_MT=PrometheusSetup_ST=K8sNetworkVulnerability_protocol=tm_mode=attack",
-      "tags": null,
-      "date": "2025-03-17T11:25:44.136609"
+      "attributes": {
+        "main_task": "PrometheusSetup",
+        "mode": "attack",
+        "protocol": "tm",
+        "setting": "kube",
+        "side_task": "K8sNetworkVulnerability"
+      },
+      "date": "2025-03-17T11:25:44.136609",
+      "name": "kube_eval_1"
     }
   ]
 }

@@ -29,6 +29,8 @@
             --text-color: #f1f1f1;
             --text-secondary: #a0a0a0;
             --highlight: #ff7b54;
+            --highlight-secondary: #ffb347;
+            --success: #28a745;
             --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             --font-mono: 'Space Mono', monospace;
             --font-sans: 'Roboto', sans-serif;
@@ -163,15 +165,32 @@
             border-color: var(--secondary-color);
         }
 
-        .tag-filters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
+        .attributes-filter-section {
             margin-bottom: 2rem;
         }
 
-        .tag {
+        .filter-title {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .attribute-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .attribute-group {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .attribute-key {
             background-color: var(--card-bg);
             border: 1px solid var(--secondary-color);
             padding: 0.3rem 0.8rem;
@@ -180,11 +199,95 @@
             font-size: 0.8rem;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
-        .tag.active {
+        .attribute-key.has-value {
+            background-color: var(--highlight-secondary);
+            color: var(--bg-color);
+            border-color: var(--highlight-secondary);
+        }
+
+        .attribute-key.exists {
             background-color: var(--secondary-color);
             color: var(--bg-color);
+            border-color: var(--secondary-color);
+        }
+
+        .attribute-key:hover {
+            transform: translateY(-2px);
+        }
+
+        .filter-indicator {
+            font-size: 0.7rem;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            margin-left: 0.3rem;
+        }
+
+        .attribute-values {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .attribute-values.open {
+            display: block;
+        }
+
+        .dropdown-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 90;
+            background: transparent;
+            display: none;
+        }
+
+        .dropdown-overlay.active {
+            display: block;
+        }
+
+        .value-item {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .value-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .value-item.selected {
+            background-color: var(--primary-color);
+        }
+
+        .value-item.exists-only {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+        }
+
+        .attribute-value-count {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 0.1rem 0.4rem;
+            font-size: 0.7rem;
         }
 
         .logs-grid {
@@ -229,19 +332,35 @@
             padding: 1.2rem;
         }
 
-        .log-tags {
+        .log-attributes {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .log-tag {
+        .log-attribute {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0.6rem;
             background-color: rgba(0, 0, 0, 0.2);
-            padding: 0.2rem 0.5rem;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-family: var(--font-mono);
+        }
+
+        .log-attribute-key {
+            color: var(--highlight);
+            font-weight: bold;
+        }
+
+        .log-attribute-value {
+            color: var(--text-color);
+        }
+
+        .empty-value {
+            color: var(--text-secondary);
+            font-style: italic;
         }
 
         .log-actions {
@@ -271,6 +390,69 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             opacity: 1;
+        }
+
+        .active-filters {
+            margin: 0 auto 1.5rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 0.8rem;
+            max-width: 800px;
+        }
+
+        .active-filters-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .active-filter-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+        }
+
+        .filter-badge.exists {
+            background-color: var(--secondary-color);
+            color: var(--bg-color);
+        }
+
+        .filter-badge-remove {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            margin-left: 0.3rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .clear-filters {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--highlight);
+            font-size: 0.8rem;
+            margin-left: auto;
+            font-family: var(--font-mono);
         }
 
         .loading {
@@ -362,48 +544,142 @@
             }
         };
 
+        // Filter types enum
+        const FilterType = {
+            NONE: 'none',
+            EXISTS: 'exists',
+            HAS_VALUE: 'has_value'
+        };
+
         // Main App Component
         const App = () => {
             const [logs, setLogs] = React.useState([]);
             const [loading, setLoading] = React.useState(true);
             const [error, setError] = React.useState(null);
             const [searchTerm, setSearchTerm] = React.useState('');
-            const [selectedTags, setSelectedTags] = React.useState([]);
+            const [attributeFilters, setAttributeFilters] = React.useState({});
+            const [openDropdown, setOpenDropdown] = React.useState(null);
 
-            // Get all unique tags from logs
-            const allTags = React.useMemo(() => {
-                const tagSet = new Set();
+            // Extract all attributes and their values from logs
+            const attributesInfo = React.useMemo(() => {
+                const attributes = {};
+
                 logs.forEach(log => {
-                    if (log.tags && Array.isArray(log.tags)) {
-                        log.tags.forEach(tag => tagSet.add(tag));
+                    if (log.attributes && typeof log.attributes === 'object') {
+                        Object.entries(log.attributes).forEach(([key, value]) => {
+                            if (!attributes[key]) {
+                                attributes[key] = {
+                                    values: {},
+                                    count: 0
+                                };
+                            }
+
+                            attributes[key].count++;
+
+                            if (value) {
+                                if (!attributes[key].values[value]) {
+                                    attributes[key].values[value] = 0;
+                                }
+                                attributes[key].values[value]++;
+                            }
+                        });
                     }
                 });
-                return Array.from(tagSet);
+
+                return attributes;
             }, [logs]);
 
-            // Toggle a tag in the selected tags list
-            const toggleTag = (tag) => {
-                if (selectedTags.includes(tag)) {
-                    setSelectedTags(selectedTags.filter(t => t !== tag));
-                } else {
-                    setSelectedTags([...selectedTags, tag]);
+            // Toggle attribute filter state
+            const toggleAttributeFilter = (key, value = null) => {
+                setAttributeFilters(prevFilters => {
+                    const newFilters = { ...prevFilters };
+
+                    // If no specific value is provided, cycle through filter states for the key
+                    if (value === null) {
+                        if (!newFilters[key]) {
+                            // No filter -> EXISTS filter
+                            newFilters[key] = { type: FilterType.EXISTS };
+                        } else if (newFilters[key].type === FilterType.EXISTS) {
+                            // EXISTS filter -> No filter (remove)
+                            delete newFilters[key];
+                        } else if (newFilters[key].type === FilterType.HAS_VALUE) {
+                            // HAS_VALUE filter -> No filter (remove)
+                            delete newFilters[key];
+                        }
+                    } else {
+                        // A specific value is provided
+                        if (!newFilters[key] || newFilters[key].type === FilterType.EXISTS) {
+                            // No filter or EXISTS filter -> HAS_VALUE filter
+                            newFilters[key] = { type: FilterType.HAS_VALUE, value };
+                        } else if (newFilters[key].type === FilterType.HAS_VALUE && newFilters[key].value === value) {
+                            // Toggle off if the same value is clicked again
+                            delete newFilters[key];
+                        } else {
+                            // Change to a different value
+                            newFilters[key] = { type: FilterType.HAS_VALUE, value };
+                        }
+                    }
+
+                    return newFilters;
+                });
+
+                // Close the dropdown after selecting a value
+                if (value !== null) {
+                    setOpenDropdown(null);
                 }
             };
 
-            // Filter logs based on search term and selected tags
+            // Toggle dropdown open/closed
+            const toggleDropdown = (key) => {
+                setOpenDropdown(prev => prev === key ? null : key);
+            };
+
+            // Close dropdown when clicking outside
+            const closeDropdown = () => {
+                setOpenDropdown(null);
+            };
+
+            // Clear all filters
+            const clearFilters = () => {
+                setAttributeFilters({});
+                setSearchTerm('');
+            };
+
+            // Remove a specific filter
+            const removeFilter = (key) => {
+                setAttributeFilters(prevFilters => {
+                    const newFilters = { ...prevFilters };
+                    delete newFilters[key];
+                    return newFilters;
+                });
+            };
+
+            // Filter logs based on search term and attribute filters
             const filteredLogs = React.useMemo(() => {
                 return logs.filter(log => {
                     // Filter by search term
                     const searchMatch = searchTerm === '' ||
                         log.name.toLowerCase().includes(searchTerm.toLowerCase());
 
-                    // Filter by selected tags
-                    const tagMatch = selectedTags.length === 0 ||
-                        (log.tags && selectedTags.every(tag => log.tags.includes(tag)));
+                    // Filter by attribute filters
+                    const attributeMatch = Object.entries(attributeFilters).every(([key, filter]) => {
+                        if (!log.attributes) return false;
 
-                    return searchMatch && tagMatch;
+                        // Check if the attribute exists in the log
+                        const hasAttribute = key in log.attributes;
+
+                        if (filter.type === FilterType.EXISTS) {
+                            return hasAttribute;
+                        } else if (filter.type === FilterType.HAS_VALUE) {
+                            return hasAttribute && log.attributes[key] === filter.value;
+                        }
+
+                        return true;
+                    });
+
+                    return searchMatch && attributeMatch;
                 });
-            }, [logs, searchTerm, selectedTags]);
+            }, [logs, searchTerm, attributeFilters]);
 
             // Load logs data
             React.useEffect(() => {
@@ -427,6 +703,129 @@
                 fetchLogs();
             }, []);
 
+            // Render attribute filters
+            const renderAttributeFilters = () => {
+                const attributeKeys = Object.keys(attributesInfo).sort();
+
+                if (attributeKeys.length === 0) {
+                    return null;
+                }
+
+                return (
+                    <div className="attributes-filter-section">
+                        <div className="filter-title">Filter by attributes</div>
+                        <div className="attribute-filters">
+                            {attributeKeys.map(key => {
+                                const info = attributesInfo[key];
+                                const hasMultipleValues = Object.keys(info.values).length > 0;
+                                const filter = attributeFilters[key];
+                                const isOpen = openDropdown === key;
+
+                                let className = 'attribute-key';
+                                if (filter) {
+                                    if (filter.type === FilterType.EXISTS) {
+                                        className += ' exists';
+                                    } else if (filter.type === FilterType.HAS_VALUE) {
+                                        className += ' has-value';
+                                    }
+                                }
+
+                                return (
+                                    <div key={key} className="attribute-group">
+                                        <div
+                                            className={className}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                if (hasMultipleValues) {
+                                                    toggleDropdown(key);
+                                                } else {
+                                                    toggleAttributeFilter(key);
+                                                }
+                                            }}
+                                        >
+                                            {key}
+                                            <span className="attribute-value-count">
+                                                {info.count}
+                                            </span>
+                                        </div>
+
+                                        {hasMultipleValues && (
+                                            <div className={`attribute-values ${isOpen ? 'open' : ''}`}>
+                                                <div
+                                                    className={`value-item ${filter?.type === FilterType.EXISTS ? 'exists-only' : ''}`}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        toggleAttributeFilter(key);
+                                                    }}
+                                                >
+                                                    <span>Any value (exists)</span>
+                                                    <span className="attribute-value-count">{info.count}</span>
+                                                </div>
+                                                {Object.entries(info.values).map(([value, count]) => (
+                                                    <div
+                                                        key={`${key}-${value}`}
+                                                        className={`value-item ${filter?.type === FilterType.HAS_VALUE && filter.value === value ? 'selected' : ''}`}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            toggleAttributeFilter(key, value);
+                                                        }}
+                                                    >
+                                                        <span>{value || <em className="empty-value">(empty)</em>}</span>
+                                                        <span className="attribute-value-count">{count}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        {openDropdown && (
+                            <div className="dropdown-overlay active" onClick={closeDropdown}></div>
+                        )}
+                    </div>
+                );
+            };
+
+            // Render active filters display
+            const renderActiveFilters = () => {
+                const hasFilters = Object.keys(attributeFilters).length > 0 || searchTerm;
+
+                if (!hasFilters) {
+                    return null;
+                }
+
+                return (
+                    <div className="active-filters">
+                        <div className="active-filters-title">
+                            Active Filters
+                            <button className="clear-filters" onClick={clearFilters}>Clear All</button>
+                        </div>
+                        <div className="active-filter-badges">
+                            {searchTerm && (
+                                <div className="filter-badge">
+                                    <span>Search: {searchTerm}</span>
+                                    <span className="filter-badge-remove" onClick={() => setSearchTerm('')}>×</span>
+                                </div>
+                            )}
+
+                            {Object.entries(attributeFilters).map(([key, filter]) => (
+                                <div
+                                    key={`filter-${key}`}
+                                    className={`filter-badge ${filter.type === FilterType.EXISTS ? 'exists' : ''}`}
+                                >
+                                    <span>{key}</span>
+                                    {filter.type === FilterType.HAS_VALUE && (
+                                        <span>: {filter.value || <em>(empty)</em>}</span>
+                                    )}
+                                    <span className="filter-badge-remove" onClick={() => removeFilter(key)}>×</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+            };
+
             if (loading) {
                 return <div className="loading">Loading logs...</div>;
             }
@@ -436,7 +835,7 @@
             }
 
             return (
-                <main>
+                <main onClick={closeDropdown}>
                     <h1>Control Arena Log Explorer</h1>
 
                     <div className="search-container">
@@ -446,22 +845,12 @@
                             placeholder="Search logs by name..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
+                            onClick={(e) => e.stopPropagation()}
                         />
                     </div>
 
-                    {allTags.length > 0 && (
-                        <div className="tag-filters">
-                            {allTags.map(tag => (
-                                <div
-                                    key={tag}
-                                    className={`tag ${selectedTags.includes(tag) ? 'active' : ''}`}
-                                    onClick={() => toggleTag(tag)}
-                                >
-                                    {tag}
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                    {renderAttributeFilters()}
+                    {renderActiveFilters()}
 
                     {filteredLogs.length === 0 ? (
                         <div className="loading">No logs found matching your criteria</div>
@@ -474,10 +863,15 @@
                                         <div className="log-date">{formatDate(log.date)}</div>
                                     </div>
                                     <div className="log-body">
-                                        {log.tags && log.tags.length > 0 && (
-                                            <div className="log-tags">
-                                                {log.tags.map(tag => (
-                                                    <span key={`${log.name}-${tag}`} className="log-tag">{tag}</span>
+                                        {log.attributes && Object.keys(log.attributes).length > 0 && (
+                                            <div className="log-attributes">
+                                                {Object.entries(log.attributes).map(([key, value]) => (
+                                                    <div key={`${log.name}-${key}`} className="log-attribute">
+                                                        <span className="log-attribute-key">{key}</span>
+                                                        <span className="log-attribute-value">
+                                                            {value || <span className="empty-value">(flag)</span>}
+                                                        </span>
+                                                    </div>
                                                 ))}
                                             </div>
                                         )}
