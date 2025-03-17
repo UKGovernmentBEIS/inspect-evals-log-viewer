@@ -31,6 +31,13 @@
       },
       "date": "2025-03-17T11:25:44.136609",
       "name": "kube_eval_1"
+    },
+    {
+      "name": "test_bash",
+      "attributes": {
+        "main_task": "basic"
+      },
+      "date": "2025-03-17T11:51:48.003375"
     }
   ]
 }
