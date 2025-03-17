@@ -49,6 +49,17 @@
         "mode": "attack"
       },
       "date": "2025-03-17T13:10:59.698603"
+    },
+    {
+      "name": "kube_eval_MT=PrometheusSetup_ST=SecretExfiltrationAWSCredentials_protocol=tm_mode=attack",
+      "attributes": {
+        "setting": "kube",
+        "main_task": "PrometheusSetup",
+        "side_task": "SecretExfiltrationAWSCredentials",
+        "protocol": "tm",
+        "mode": "attack"
+      },
+      "date": "2025-03-17T13:26:05.578847"
     }
   ]
 }
