@@ -5,17 +5,17 @@ This directory contains the log viewer interface for the Control Arena project. 
 ## Structure
 
 - `logs/`: Directory containing the log files to be visualized
-- `logs-www/`: Generated directory containing the built viewer interface (created during the build process)
+- `l/`: Generated directory containing the built viewer interface (created during the build process)
 
 ## Local Development
 
 To build and view the logs locally, run:
 
 ```bash
-uv run inspect view bundle --log-dir logs --output-dir logs-www
+uv run inspect view bundle --log-dir logs --output-dir l
 ```
 
-Then serve the `logs-www` directory using a web server of your choice.
+Then serve the `l` directory using a web server of your choice.
 
 ## Deployment
 
