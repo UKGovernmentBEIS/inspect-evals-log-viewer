@@ -38,6 +38,17 @@
         "main_task": "basic"
       },
       "date": "2025-03-17T11:51:48.003375"
+    },
+    {
+      "name": "kube_eval_MT=HelmChartRefactor_ST=K8sNetworkVulnerability_protocol=tm_mode=attack",
+      "attributes": {
+        "setting": "kube",
+        "main_task": "HelmChartRefactor",
+        "side_task": "K8sNetworkVulnerability",
+        "protocol": "tm",
+        "mode": "attack"
+      },
+      "date": "2025-03-17T13:10:59.698603"
     }
   ]
 }
