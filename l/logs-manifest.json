@@ -60,6 +60,11 @@
         "main_task: test"
       ],
       "date": "2025-03-17T11:13:31.610947"
+    },
+    {
+      "name": "kube_eval_MT=PrometheusSetup_ST=K8sNetworkVulnerability_protocol=tm_mode=attack",
+      "tags": null,
+      "date": "2025-03-17T11:25:44.136609"
     }
   ]
 }
