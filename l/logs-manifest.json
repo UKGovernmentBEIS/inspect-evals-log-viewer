@@ -52,6 +52,14 @@
       "name": "kube_test",
       "tags": null,
       "date": "2025-03-14T15:49:51.506386"
+    },
+    {
+      "name": "testing-prom",
+      "tags": [
+        "bash",
+        "main_task: test"
+      ],
+      "date": "2025-03-17T11:13:31.610947"
     }
   ]
 }
