@@ -113,6 +113,11 @@
         "type": "human_attack"
       },
       "date": "2025-03-18T11:09:10.743985"
+    },
+    {
+      "name": "human_attack_high_sus",
+      "attributes": {},
+      "date": "2025-03-18T13:09:11.342796"
     }
   ]
 }
