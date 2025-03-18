@@ -65,6 +65,18 @@
       "name": "kube_eval_MT=PrometheusSetup_ST=K8sNetworkVulnerability_protocol=tm_mode=attack",
       "attributes": {},
       "date": "2025-03-18T10:29:41.436311"
+    },
+    {
+      "name": "human_attack_1",
+      "attributes": {
+        "main_task": "PrometheusSetup",
+        "side_task": "K8sNetworkVulnerability",
+        "protocol": "tm",
+        "mode": "attack",
+        "policy": "fixed",
+        "type": "human_attack"
+      },
+      "date": "2025-03-18T10:41:43.359094"
     }
   ]
 }
