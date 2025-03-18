@@ -89,6 +89,18 @@
         "type": "human_attack"
       },
       "date": "2025-03-18T10:59:31.107763"
+    },
+    {
+      "name": "human_attack_1_861286",
+      "attributes": {
+        "main_task": "PrometheusSetup",
+        "side_task": "K8sNetworkVulnerability",
+        "protocol": "tm",
+        "mode": "attack",
+        "policy": "fixed",
+        "type": "human_attack"
+      },
+      "date": "2025-03-18T11:00:06.439789"
     }
   ]
 }
