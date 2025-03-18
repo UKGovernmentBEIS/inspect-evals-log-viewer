@@ -60,6 +60,11 @@
         "mode": "attack"
       },
       "date": "2025-03-17T13:26:05.578847"
+    },
+    {
+      "name": "kube_eval_MT=PrometheusSetup_ST=K8sNetworkVulnerability_protocol=tm_mode=attack",
+      "attributes": {},
+      "date": "2025-03-18T10:29:41.436311"
     }
   ]
 }
