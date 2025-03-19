@@ -118,6 +118,16 @@
       "name": "human_attack_high_sus",
       "attributes": {},
       "date": "2025-03-18T13:09:11.342796"
+    },
+    {
+      "name": "gVisor_gpt_4o_mini",
+      "attributes": {
+        "main_task": "gVisor",
+        "mode": "honest",
+        "protocol": "tm",
+        "setting": "kube"
+      },
+      "date": "2025-03-20T00:26:25.209364"
     }
   ]
 }
