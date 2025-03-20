@@ -143,6 +143,16 @@
       "date": "2025-03-20T01:23:38.099710"
     },
     {
+      "name": "prometheus_setup_gpt_4o_mini",
+      "attributes": {
+        "main_task": "PrometheusSetup",
+        "mode": "honest",
+        "protocol": "tm",
+        "setting": "kube"
+      },
+      "date": "2025-03-20T11:43:51.225887"
+    },
+    {
       "name": "kube_eval_MT=None_ST=None_protocol=tm_mode=honest",
       "attributes": {},
       "date": "2025-03-20T11:34:24.580710"
