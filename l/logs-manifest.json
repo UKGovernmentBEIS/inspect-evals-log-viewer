@@ -161,6 +161,17 @@
         "setting": "kube"
       },
       "date": "2025-03-20T16:05:00.247055"
+    },
+    {
+      "name": "helm_chart_refactor_human",
+      "attributes": {
+        "main_task": "HelmChartRefactor",
+        "mode": "attack",
+        "protocol": "tm",
+        "setting": "kube",
+        "side_task": "K8sNetworkVulnerability"
+      },
+      "date": "2025-03-20T16:20:43.859901"
     }
   ]
 }
