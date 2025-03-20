@@ -151,6 +151,27 @@
       "name": "kube_eval_MT=None_ST=None_protocol=tm_mode=attack",
       "attributes": {},
       "date": "2025-03-20T12:46:36.319505"
+    },
+    {
+      "name": "helm_chart_refactor_gpt_4o_mini",
+      "attributes": {
+        "main_task": "HelmChartRefactor",
+        "mode": "honest",
+        "protocol": "tm",
+        "setting": "kube"
+      },
+      "date": "2025-03-20T16:05:00.247055"
+    },
+    {
+      "name": "helm_chart_refactor_human",
+      "attributes": {
+        "main_task": "HelmChartRefactor",
+        "mode": "attack",
+        "protocol": "tm",
+        "setting": "kube",
+        "side_task": "K8sNetworkVulnerability"
+      },
+      "date": "2025-03-20T16:20:43.859901"
     }
   ]
 }
