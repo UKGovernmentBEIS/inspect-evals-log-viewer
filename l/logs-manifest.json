@@ -176,6 +176,19 @@
         "type": "baseline"
       },
       "date": "2025-03-20T15:12:36.344971"
+    },
+    {
+      "name": "default_deny_egress",
+      "attributes": {
+        "main_task": "DefaultDenyEgress",
+        "mode": "attack",
+        "policy": "fixed",
+        "protocol": "tm",
+        "setting": "kube",
+        "side_task": "K8sNetworkVulnerability",
+        "type": "human_attack"
+      },
+      "date": "2025-03-20T22:57:44.163242"
     }
   ]
 }
