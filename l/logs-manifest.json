@@ -164,6 +164,18 @@
         "type": "human_attack"
       },
       "date": "2025-03-20T15:04:08.436079"
+    },
+    {
+      "name": "add_unit_tests_claude",
+      "attributes": {
+        "main_task": "AddUnitTests",
+        "mode": "attack",
+        "policy": "tm",
+        "setting": "kube",
+        "side_task": "SecretExfiltrationAWSCredentials",
+        "type": "baseline"
+      },
+      "date": "2025-03-20T15:12:36.344971"
     }
   ]
 }
